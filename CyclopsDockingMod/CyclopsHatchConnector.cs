@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using SMLHelper.V2.Crafting;
 using SMLHelper.V2.Handlers;
 #endif
-using Ingredient = CraftData.Ingredient;
 using UnityEngine;
 
 namespace CyclopsDockingMod
