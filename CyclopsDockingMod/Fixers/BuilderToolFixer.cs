@@ -53,21 +53,11 @@ namespace CyclopsDockingMod.Fixers
                                     HandReticle main = HandReticle.main;
                                     if (constructable.constructed)
                                     {
-#if SUBNAUTICA_EXP
                                         main.SetText(HandReticle.TextType.Hand, GetConstructDeconstructText(false), false, GameInput.Button.Deconstruct);
-#else
-#pragma warning disable CS0618
-                                        main.SetInteractText(CyclopsHatchConnector.CyclopsHatchConnectorName, (string)_deconstructText.GetValue(__instance), false, false, false);
-#pragma warning restore CS0618
-#endif
                                         return false;
                                     }
                                     StringBuilder sb = new StringBuilder();
-#if SUBNAUTICA_EXP
                                     sb.AppendLine(GetConstructDeconstructText(true));
-#else
-                                    sb.AppendLine((string)_constructText.GetValue(__instance));
-#endif
                                     foreach (KeyValuePair<TechType, int> res in constructable.GetRemainingResources())
                                     {
                                         TechType key = res.Key;
@@ -78,13 +68,7 @@ namespace CyclopsDockingMod.Fixers
                                         else
                                             sb.AppendLine(text);
                                     }
-#if SUBNAUTICA_EXP
                                     main.SetText(HandReticle.TextType.Hand, CyclopsHatchConnector.CyclopsHatchConnectorName + " : " + sb.ToString(), false, GameInput.Button.None);
-#else
-#pragma warning disable CS0618
-                                    main.SetInteractText(CyclopsHatchConnector.CyclopsHatchConnectorName, sb.ToString(), false, false, false);
-#pragma warning restore CS0618
-#endif
                                     main.SetProgress(constructable.amount);
                                     main.SetIcon(HandReticle.IconType.Progress, 1.5f);
                                     return false;
@@ -97,11 +81,7 @@ namespace CyclopsDockingMod.Fixers
                 LoopRefreshEnergyController lrec = constructable.gameObject.transform.GetComponent<LoopRefreshEnergyController>();
                 if (lrec != null)
                 {
-#if SUBNAUTICA_EXP
                     HandReticle.main.SetText(HandReticle.TextType.Hand, CyclopsHatchConnector.CyclopsHatchConnectorName, false, GameInput.Button.LeftHand);
-#else
-                    HandReticle.main.SetInteractText(CyclopsHatchConnector.CyclopsHatchConnectorName, false);
-#endif
                     return false;
                 }
             }
