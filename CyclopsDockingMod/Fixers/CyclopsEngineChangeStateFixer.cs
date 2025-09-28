@@ -76,30 +76,14 @@ namespace CyclopsDockingMod.Fixers
 						if (text == "CyclopsAutoPilotCreate")
 						{
                             if (AutoPilot.IsRecording)
-#if SUBNAUTICA_EXP
                                 HandReticle.main.SetText(HandReticle.TextType.Hand, AutoPilot.Lbl_BtnAutoPilot_StopRecordTooltip, false, GameInput.Button.LeftHand);
-#else
-                                HandReticle.main.SetInteractText(AutoPilot.Lbl_BtnAutoPilot_RecordTooltip, false, HandReticle.Hand.Left);
-#endif
                             else
-#if SUBNAUTICA_EXP
                                 HandReticle.main.SetText(HandReticle.TextType.Hand, AutoPilot.Lbl_BtnAutoPilot_RecordTooltip, false, GameInput.Button.LeftHand);
-#else
-                                HandReticle.main.SetInteractText(AutoPilot.Lbl_BtnAutoPilot_RecordTooltip, false, HandReticle.Hand.Left);
-#endif
                         }
 						else if (text == "CyclopsAutoPilotOn")
-#if SUBNAUTICA_EXP
 							HandReticle.main.SetText(HandReticle.TextType.Hand, AutoPilot.Lbl_BtnAutoPilot_StartTooltip, false, GameInput.Button.LeftHand);
-#else
-                            HandReticle.main.SetInteractText(AutoPilot.Lbl_BtnAutoPilot_StartTooltip, false, HandReticle.Hand.Left);
-#endif
 						else
-#if SUBNAUTICA_EXP
 							HandReticle.main.SetText(HandReticle.TextType.Hand, AutoPilot.Lbl_BtnAutoPilot_StopTooltip, false, GameInput.Button.LeftHand);
-#else
-                            HandReticle.main.SetInteractText(AutoPilot.Lbl_BtnAutoPilot_StopTooltip, false, HandReticle.Hand.Left);
-#endif
 					}
 					string pid = __instance.subRoot.GetComponent<PrefabIdentifier>()?.Id;
 					float num = (((pid != null && AutoPilot.SubsPlayingRoutes.ContainsKey(pid) && (AutoPilot.SubsPlayingRoutes[pid].IsPlayingRoute || AutoPilot.SubsPlayingRoutes[pid].UndockStartPlaying)) || AutoPilot.UndockStartRecord || AutoPilot.IsRecording) ? 3f : 0f);
@@ -114,11 +98,7 @@ namespace CyclopsDockingMod.Fixers
 					if (text2 != null)
 					{
 						if ((bool)CyclopsEngineChangeStateFixer._mouseHoverField.GetValue(__instance))
-#if SUBNAUTICA_EXP
                             HandReticle.main.SetText(HandReticle.TextType.Hand, text2, false, GameInput.Button.LeftHand);
-#else
-                            HandReticle.main.SetInteractText(text2, false, HandReticle.Hand.Left);
-#endif
                         return false;
 					}
 				}

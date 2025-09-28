@@ -6,11 +6,7 @@ using UnityEngine;
 namespace CyclopsDockingMod
 {
     [BepInPlugin("com.osubmarin.cyclopsdockingmod", "CyclopsDockingMod", "2.1.1")]
-#if SUBNAUTICA_NAUTI
     [BepInDependency("com.snmodding.nautilus", BepInDependency.DependencyFlags.HardDependency)]
-#else
-	[BepInDependency("com.ahk1221.smlhelper", BepInDependency.DependencyFlags.HardDependency)]
-#endif
 	[DisallowMultipleComponent]
 	public class CyclopsDockingMod_EntryPoint : BaseUnityPlugin
     {
